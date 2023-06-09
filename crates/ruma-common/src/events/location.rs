@@ -27,15 +27,24 @@ pub struct LocationEventContent {
     pub text: TextContentBlock,
 
     /// The location info of the message.
-    #[serde(rename = "m.location")]
+    #[serde(rename = "org.matrix.msc3488.location", alias = "m.location")]
     pub location: LocationContent,
 
     /// The asset this message refers to.
-    #[serde(default, rename = "m.asset", skip_serializing_if = "ruma_common::serde::is_default")]
+    #[serde(
+        default,
+        rename = "org.matrix.msc3488.asset",
+        alias = "m.asset",
+        skip_serializing_if = "ruma_common::serde::is_default"
+    )]
     pub asset: AssetContent,
 
     /// The timestamp this message refers to.
-    #[serde(rename = "m.ts", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "org.matrix.msc3488.ts",
+        alias = "m.ts",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub ts: Option<MilliSecondsSinceUnixEpoch>,
 
     /// Whether this message is automated.

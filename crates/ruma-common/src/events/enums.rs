@@ -63,7 +63,8 @@ event_enum! {
         "m.key.verification.mac" => super::key::verification::mac,
         "m.key.verification.done" => super::key::verification::done,
         #[cfg(feature = "unstable-msc3488")]
-        "m.location" => super::location,
+        #[ruma_enum(alias = "m.location")]
+        "org.matrix.msc3488.location" => super::location,
         #[cfg(feature = "unstable-msc1767")]
         #[ruma_enum(alias = "m.message")]
         "org.matrix.msc1767.message" => super::message,

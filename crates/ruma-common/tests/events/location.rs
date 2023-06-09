@@ -31,7 +31,7 @@ fn plain_content_serialization() {
             "org.matrix.msc1767.text": [
                 { "body": "Alice was at geo:51.5008,0.1247;u=35" },
             ],
-            "m.location": {
+            "org.matrix.msc3488.location": {
                 "uri": "geo:51.5008,0.1247;u=35",
             },
         })
@@ -74,12 +74,12 @@ fn event_serialization() {
                     "body": "Alice was at geo:51.5008,0.1247;u=35 as of Sat Nov 13 18:50:58 2021"
                 },
             ],
-            "m.location": {
+            "org.matrix.msc3488.location": {
                 "uri": "geo:51.5008,0.1247;u=35",
                 "description": "Alice's whereabouts",
                 "zoom_level": 4,
             },
-            "m.ts": 1_636_829_458,
+            "org.matrix.msc3488.ts": 1_636_829_458,
             "m.relates_to": {
                 "m.in_reply_to": {
                     "event_id": "$replyevent:example.com",
@@ -95,7 +95,7 @@ fn plain_content_deserialization() {
         "org.matrix.msc1767.text": [
             { "body": "Alice was at geo:51.5008,0.1247;u=35" },
         ],
-        "m.location": {
+        "org.matrix.msc3488.location": {
             "uri": "geo:51.5008,0.1247;u=35",
         },
     });
@@ -144,12 +144,12 @@ fn message_event_deserialization() {
             "org.matrix.msc1767.text": [
                 { "body": "Alice was at geo:51.5008,0.1247;u=35 as of Sat Nov 13 18:50:58 2021" },
             ],
-            "m.location": {
+            "org.matrix.msc3488.location": {
                 "uri": "geo:51.5008,0.1247;u=35",
                 "description": "Alice's whereabouts",
                 "zoom_level": 4,
             },
-            "m.ts": 1_636_829_458,
+            "org.matrix.msc3488.ts": 1_636_829_458,
             "m.relates_to": {
                 "m.in_reply_to": {
                     "event_id": "$replyevent:example.com",
