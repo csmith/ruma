@@ -1,4 +1,4 @@
-//! Types for the [`m.poll.response`] event.
+//! Types for the `m.poll.response` event.
 
 use std::{ops::Deref, vec};
 

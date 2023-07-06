@@ -1,4 +1,4 @@
-//! Types for the [`m.poll.start`] event.
+//! Types for the `m.poll.start` event.
 
 use std::ops::Deref;
 

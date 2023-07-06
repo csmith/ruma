@@ -1,4 +1,4 @@
-//! Types for the [`m.poll.end`] event.
+//! Types for the `m.poll.end` event.
 
 use std::{
     collections::{btree_map, BTreeMap},
