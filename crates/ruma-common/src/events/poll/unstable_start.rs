@@ -39,7 +39,7 @@ pub struct UnstablePollStartEventContent {
 
     /// Text representation of the message, for clients that don't support polls.
     #[serde(rename = "org.matrix.msc1767.text")]
-    pub text: String,
+    pub text: Option<String>,
 
     /// Information about related messages.
     #[serde(
@@ -51,10 +51,15 @@ pub struct UnstablePollStartEventContent {
 }
 
 impl UnstablePollStartEventContent {
+    /// Creates a new `PollStartEventContent` with the given poll content.
+    pub fn new(poll_start: UnstablePollStartContentBlock) -> Self {
+        Self { poll_start, text: None, relates_to: None }
+    }
+
     /// Creates a new `PollStartEventContent` with the given plain text fallback
     /// representation and poll content.
-    pub fn new(text: impl Into<String>, poll_start: UnstablePollStartContentBlock) -> Self {
-        Self { poll_start, text: text.into(), relates_to: None }
+    pub fn plain_text(text: impl Into<String>, poll_start: UnstablePollStartContentBlock) -> Self {
+        Self { poll_start, text: Some(text.into()), relates_to: None }
     }
 }
 

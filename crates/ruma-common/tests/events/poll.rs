@@ -387,7 +387,7 @@ fn end_event_deserialization() {
 
 #[test]
 fn unstable_start_content_serialization() {
-    let event_content = UnstablePollStartEventContent::new(
+    let event_content = UnstablePollStartEventContent::plain_text(
         "How's the weather?\n1. Not bad…\n2. Fine.\n3. Amazing!",
         UnstablePollStartContentBlock::new(
             "How's the weather?",
@@ -481,7 +481,7 @@ fn unstable_start_event_deserialization() {
         AnyMessageLikeEvent::UnstablePollStart(MessageLikeEvent::Original(message_event))
     );
     assert_eq!(
-        message_event.content.text,
+        message_event.content.text.unwrap(),
         "How's the weather?\n1. Not bad…\n2. Fine.\n3. Amazing!"
     );
     let poll = message_event.content.poll_start;
