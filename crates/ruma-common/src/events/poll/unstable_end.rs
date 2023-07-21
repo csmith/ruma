@@ -28,7 +28,7 @@ pub struct UnstablePollEndEventContent {
     pub text: String,
 
     /// The poll end content.
-    #[serde(rename = "org.matrix.msc3381.poll.end")]
+    #[serde(default, rename = "org.matrix.msc3381.poll.end")]
     pub poll_end: UnstablePollEndContentBlock,
 
     /// Information about the poll start event this responds to.
