@@ -7,7 +7,7 @@ use serde::{Deserialize, Deserializer, Serialize, Serializer};
 use crate::{events::poll::start::PollKind, PrivOwnedStr};
 
 /// Serializes a PollKind using the unstable prefixes.
-pub fn serialize<S>(kind: &PollKind, serializer: S) -> Result<S::Ok, S::Error>
+pub(super) fn serialize<S>(kind: &PollKind, serializer: S) -> Result<S::Ok, S::Error>
 where
     S: Serializer,
 {
@@ -21,7 +21,7 @@ where
 }
 
 /// Deserializes a PollKind using the unstable prefixes.
-pub fn deserialize<'de, D>(deserializer: D) -> Result<PollKind, D::Error>
+pub(super) fn deserialize<'de, D>(deserializer: D) -> Result<PollKind, D::Error>
 where
     D: Deserializer<'de>,
 {
